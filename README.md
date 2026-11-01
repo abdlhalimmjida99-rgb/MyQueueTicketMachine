@@ -1,61 +1,156 @@
-<div align="center">
+🎟️ Queue Management System — C++
 
-  # 🎫 Queue Ticket Machine System (C++)
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:141E30,100:243B55&height=180&section=header&text=QUEUE%20MANAGEMENT&fontSize=35&fontColor=ffffff&animation=fadeIn&fontAlignY=45&desc=C%2B%2B%20%7C%20Data%20Structures%20%7C%20OOP&descAlignY=70&descSize=16" width="100%"/>
+</p>
 
-  <p align="center">
-    <img src="https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-    <img src="https://img.shields.io/badge/Paradigm-OOP-orange?style=for-the-badge" />
-    <img src="https://img.shields.io/badge/Data_Structures-Queue_%26_Stack-yellow?style=for-the-badge" />
-    <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
-  </p>
+<p align="center">
+<img src="https://img.shields.io/badge/Language-C%2B%2B-blue?style=for-the-badge&logo=cplusplus"/>
+<img src="https://img.shields.io/badge/Data%20Structures-Queue-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Data%20Structures-Stack-purple?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Programming-OOP-success?style=for-the-badge"/>
+</p>
 
-  <p align="center">
-    <b>A clean, efficient C++ queue management system simulating real-world ticketing services.</b>
-  </p>
+<p align="center">
+<b>A Simple and Efficient Customer Queue Management System Built with C++.</b>
+</p>
 
-</div>
+📌 About The Project
 
----
+Queue Management System is a C++ project designed to simulate a real-world customer service management system.
 
-## 🚀 Features
+It helps organize customer tickets, manage waiting lists, calculate estimated waiting times, and serve customers efficiently.
 
-- 🎟️ **Automated Ticket Issuance:** Generates sequential codes (e.g., `A1`, `A2`) and calculates real-time estimated waiting times.
-- 🔄 **Queue Visualization:**
-  - **RTL View:** Displays active tickets in standard sequence.
-  - **LTR View:** Leverages a temporary `stack` structure to seamlessly reverse and display elements.
-- 📊 **Detailed Insights:** Inspects full ticket metadata (timestamps, waiting clients, served counts) without altering the original queue state.
-- 👥 **Client Service Handling:** Automatically updates counters when serving the next client in line.
+The project demonstrates the practical use of Object-Oriented Programming (OOP) and fundamental data structures such as Queue and Stack.
 
----
+✨ Features
+Icon	Feature	Description
+🎫	Issue Tickets	Generate unique ticket numbers automatically.
+⏱️	Waiting Time	Calculate estimated customer waiting time.
+📊	Queue Information	Display total, served, and waiting clients.
+➡️	RTL Display	Print tickets from right to left.
+⬅️	LTR Display	Print tickets from left to right using Stack.
+🧾	Print All Tickets	Display complete information for active tickets.
+👨‍💼	Serve Next Client	Remove and serve the next customer.
+📅	Date & Time	Record the ticket issuance date and time.
+🛠️ Technologies Used
+C++ — Main programming language.
+STL Queue — Managing customer tickets.
+STL Stack — Reversing ticket display order.
+OOP — Classes, Objects, and Encapsulation.
+Date & Time — Using a custom clsDate class.
+🧠 Core Concepts
+1. Queue — FIFO
 
-## 🛠️ Code Architecture
+The system uses the First In, First Out principle.
 
-| Component | Type | Description |
-| :--- | :--- | :--- |
-| **`clsQueueLine`** | Class | Core manager handling queues, stacks, and counters. |
-| **`stMyQueueLine`** | Struct | Internal data structure storing ticket metadata. |
+The first customer who joins the queue is the first customer served.
 
----
+2. Stack — LIFO
 
-## 💻 Code Example
+A temporary Stack is used to reverse the order of tickets when displaying them from Left to Right.
 
-```cpp
-#include <iostream>
-#include "clsQueueLine.h"
+3. Waiting Time Calculation
+cpp
+WaitingTime = WaitingClients * TimePerClient;
 
-using namespace std;
+4. Automatic Ticket Generation
 
-int main() {
-    // Initialize queue line with prefix 'A' and 10 minutes per client
-    clsQueueLine QueueA("A", 10);
+Example:
 
-    // Issue tickets
-    QueueA.IssueTicket();
-    QueueA.IssueTicket();
+text
+A1 → A2 → A3 → A4 → A5
 
-    // Print queue info and tickets
-    QueueA.PrintInfo();
-    QueueA.PrintTicketsLineRTL();
 
-    return 0;
-}
+Each ticket receives a unique sequential number.
+
+💻 Main Class
+cpp
+class clsQueueLine
+
+
+The project is based on a class responsible for managing the customer queue.
+
+Constructor
+cpp
+clsQueueLine(string CodeNumber, int TimeNeed);
+
+
+Initializes the queue prefix and the estimated service time per customer.
+
+Available Methods
+Method	Description
+IssueTicket()	Generates and adds a new ticket.
+PrintInfo()	Displays general queue statistics.
+PrintTicketsLineRTL()	Displays tickets Right to Left.
+PrintTicketsLineLTR()	Displays tickets Left to Right.
+PrintAllTickets()	Prints detailed information for all tickets.
+ServeNextClient()	Serves the next customer in the queue.
+🚀 Getting Started
+Requirements
+C++ Compiler (GCC, MinGW, or Visual Studio).
+C++11 or later.
+Compile
+bash
+g++ main.cpp -o QueueSystem
+
+Run
+
+Windows:
+
+bash
+QueueSystem.exe
+
+
+Linux / macOS:
+
+bash
+./QueueSystem
+
+📂 Project Structure
+text
+Queue-Management-System/
+│
+├── main.cpp
+├── clsQueueLine.h
+├── clsDate.h
+└── README.md
+
+🎯 Learning Objectives
+
+Through this project, I practiced:
+
+Understanding Queue and Stack data structures.
+Applying FIFO and LIFO principles.
+Developing reusable C++ classes.
+Applying Object-Oriented Programming.
+Managing customer tickets.
+Calculating estimated waiting times.
+Working with STL containers.
+Organizing real-world service workflows.
+🔮 Future Improvements
+Add multiple service lines.
+Add ticket cancellation.
+Improve waiting-time updates after serving customers.
+Add priority queues.
+Save ticket information to files.
+Create a graphical user interface (GUI).
+👨‍💻 Author
+
+Your Name
+
+<p align="center">
+<img src="https://img.shields.io/badge/Made%20With-❤️%20%26%20C%2B%2B-red?style=for-the-badge"/>
+</p>
+
+<p align="center">
+⭐ If you find this project useful, consider giving it a star!
+</p>
+
+<p align="center">
+<i>Keep Learning. Keep Building. Keep Improving.</i>
+</p>
+
+<p align="center">
+© 2026 Queue Management System | C++
+</p>
