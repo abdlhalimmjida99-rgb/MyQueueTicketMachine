@@ -11,24 +11,25 @@ int main()
 
     clsQueueLine PayBillsQueue("A0", 10);
     clsQueueLine SubscriptionsQueue("B0", 5);
+
+
     PayBillsQueue.IssueTicket();
     PayBillsQueue.IssueTicket();
     PayBillsQueue.IssueTicket();
     PayBillsQueue.IssueTicket();
     PayBillsQueue.IssueTicket();
+
     cout << "\nPay Bills Queue Info:\n";
     PayBillsQueue.PrintInfo();
 
-    PayBillsQueue.PrintTicketsLineLTR();
     PayBillsQueue.PrintTicketsLineRTL();
+    PayBillsQueue.PrintTicketsLineLTR();
+
+
 
     PayBillsQueue.PrintAllTickets();
-    PayBillsQueue.PrintInfo();
-   PayBillsQueue.ServeNextClient();
-   PayBillsQueue.ServeNextClient();  PayBillsQueue.PrintInfo();
 
-   PayBillsQueue.IssueTicket();
-   PayBillsQueue.PrintAllTickets();
+    PayBillsQueue.ServeNextClient();
     cout << "\nPay Bills Queue After Serving One client\n";
     PayBillsQueue.PrintInfo();
 
@@ -53,3 +54,4 @@ int main()
 
     return 0;
 }
+
