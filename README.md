@@ -1,40 +1,61 @@
-# Queue Ticket Machine System (C++)
+<div align="center">
 
-A robust and clean C++ implementation of a **Queue Ticket Management System** using Object-Oriented Programming (OOP) principles, Standard Template Library (STL) queues, and stacks. 
+  # 🎫 Queue Ticket Machine System (C++)
 
-This project simulates real-world queue systems (such as those in banks, hospitals, or service centers) where clients draw tickets, track waiting times, and are served sequentially.
+  <p align="center">
+    <img src="https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
+    <img src="https://img.shields.io/badge/Paradigm-OOP-orange?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Data_Structures-Queue_%26_Stack-yellow?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+  </p>
+
+  <p align="center">
+    <b>A clean, efficient C++ queue management system simulating real-world ticketing services.</b>
+  </p>
+
+</div>
 
 ---
 
 ## 🚀 Features
 
-- **Ticket Generation (`IssueTicket`):** Automatically generates sequential ticket codes based on a custom prefix (e.g., `A1`, `A2`) and calculates estimated waiting times.
-- **Queue Visualization (RTL & LTR):** 
-  - `PrintTicketsLineRTL()`: Displays the current queue sequence from right to left.
-  - `PrintTicketsLineLTR()`: Uses a temporary `stack` data structure to reverse and display elements from left to right.
-- **Detailed Ticket View (`PrintAllTickets`):** Iterates through active tickets to display complete details including timestamps and service times without losing original queue data.
-- **Client Service Management (`ServeNextClient`):** Handles serving the next client in line, automatically updating waiting counters and served client metrics.
+- 🎟️ **Automated Ticket Issuance:** Generates sequential codes (e.g., `A1`, `A2`) and calculates real-time estimated waiting times.
+- 🔄 **Queue Visualization:**
+  - **RTL View:** Displays active tickets in standard sequence.
+  - **LTR View:** Leverages a temporary `stack` structure to seamlessly reverse and display elements.
+- 📊 **Detailed Insights:** Inspects full ticket metadata (timestamps, waiting clients, served counts) without altering the original queue state.
+- 👥 **Client Service Handling:** Automatically updates counters when serving the next client in line.
 
 ---
 
-## 🛠️ Code Structure
+## 🛠️ Code Architecture
 
-- **`clsQueueLine` Class:** The core class managing the ticketing logic, queues, stacks, and counters.
-- **`stMyQueueLine` Struct:** Internal structure holding individual ticket data:
-  - `_CodeNumber`: Full ticket code.
-  - `_TimeAndDate`: System timestamp of ticket issuance.
-  - `WaitingClient` & `ServedClient`: Real-time tracking counters.
-  - `_TimeServes` & `_TimeNeed`: Service time estimation metrics.
+| Component | Type | Description |
+| :--- | :--- | :--- |
+| **`clsQueueLine`** | Class | Core manager handling queues, stacks, and counters. |
+| **`stMyQueueLine`** | Struct | Internal data structure storing ticket metadata. |
 
 ---
 
-## 💻 Getting Started
+## 💻 Code Example
 
-### Prerequisites
-- A C++ compiler supporting C++11 or later (MSVC, GCC, Clang).
-- Visual Studio or any preferred C++ IDE.
+```cpp
+#include <iostream>
+#include "clsQueueLine.h"
 
-### Installation & Usage
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/Queue-Ticket-Machine.git](https://github.com/YOUR_USERNAME/Queue-Ticket-Machine.git)
+using namespace std;
+
+int main() {
+    // Initialize queue line with prefix 'A' and 10 minutes per client
+    clsQueueLine QueueA("A", 10);
+
+    // Issue tickets
+    QueueA.IssueTicket();
+    QueueA.IssueTicket();
+
+    // Print queue info and tickets
+    QueueA.PrintInfo();
+    QueueA.PrintTicketsLineRTL();
+
+    return 0;
+}
